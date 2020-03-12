@@ -1,0 +1,91 @@
+<import name="card_box" src="../common/component/card_box/card_box.ux"></import>
+<template>
+    <card_box widgetid="774e7eff-c8be-4a6e-8fba-dc7f29413793" title-msg="{{$t('message.KiwilimonCard.ability')}}" menu-msg="{{$t('message.buttonLinkArray')}}">
+        <div class="contentBox">
+
+            <div class="menu">
+            
+                <div class="menu-item" for="{{$t('message.KiwilimonCard.content.menu')}}">
+                    <stack class="stack">
+                        <image src="{{$item.imageUrl}}"></image>
+                        <text if="{{$item.status==='NEW'}}" class="newLabel">{{$item.status}}</text>
+                    </stack>
+                    <text class="food_name" id="name">{{$item.name}}</text>
+                    <text class="food_price">{{$item.subtitle}}</text>
+                </div>
+            </div>
+
+        </div>
+    </card_box>
+
+</template>
+<style lang="sass">
+   @import "./kiwilimon.scss";
+</style>
+
+<script>
+    import configuration from '@system.configuration'
+    import app from "@system.app";
+    import router from "@system.router";
+     import pkg from "@system.package";
+    const locales = {
+        "zh-CN": require('../i18n/zh-CN.js'),
+        "en-US": require('../i18n/en-US.js'),
+        "es-MX": require('../i18n/es-MX.js'),
+        "es-ES": require('../i18n/es-MX.js')
+    }
+
+
+    const localeObject = configuration.getLocale();
+    let local = localeObject.language+'-'+localeObject.countryOrRegion;
+    if(local.includes("es")){
+      local = "es-MX"
+    }else{local = "en-US"}
+    const $i18n = new I18n({ locale: local, messages: locales, fallbackLocale: `${local}` });
+    module.exports = {
+        data: {
+            i18n: $i18n
+        },
+         onInit: function () {
+            this.$on('menu-click', this.menuClick);
+        },        menuClick: function (event) {
+
+  try {
+  app.getPackageInfo({
+    packageName: "com.kiwilimon2", // Target app package name.
+    success: function(data) {
+      // The app has been installed, but the version is incorrect. The system guides the user to HUAWEI AppGallery for installation.
+      if (1 < 2) {
+          ///yeeesz
+        router.push({ uri: "kiwilimonapp://www.kiwilimon.com/receta/botanas/botanas-con-salchicha/banderillas-con-salsa-picante" });
+      }
+    },
+    fail: function(errormsg, errorcode) {
+      // The app is not installed. The system guides the user to HUAWEI AppGallery for installation.
+      router.push({ uri: "appmarket://details?id=com.kiwilimon2" });
+    }
+  });
+} catch (error) {}
+  // Use the following logic when the engine version is earlier than 1060.
+  pkg.hasInstalled({
+    package: "com.kiwilimon2",
+success: function(data) {
+// The interface is called successfully. The CP can determine whether to perform app redirection based on the site requirements.
+      console.log("handling success: " + data.result);
+    },
+    fail: function(data, code) {
+      // The app is not installed. The system guides the user to HUAWEI AppGallery for installation.
+      router.push({ uri: "appmarket://details?id=com.kiwilimon2" });
+    }
+  });
+
+        },
+        close1: function () {
+            
+        },
+        close2: function () {
+        }
+    }
+ 
+    
+</script>

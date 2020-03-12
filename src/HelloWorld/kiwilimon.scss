@@ -1,0 +1,49 @@
+@import '../common/css/basic.scss';
+
+.contentBox{
+  flex-direction: column;
+}
+
+.restaurant_title{
+  font-size: dpConvert(18);
+  color: rgba(#000000, 0.9);
+  font-weight:500;
+}
+.subtitle{
+  font-size: dpConvert(14);
+  color: rgba(#000000, 0.6);
+  font-weight:400;
+  margin-left:dpConvert(16);
+}
+.range{
+  font-size: dpConvert(14);
+  color: rgba(#000000, 0.6);
+  font-weight:400;
+  margin-bottom:dpConvert(16);
+}
+.menu{
+  justify-content: space-between;
+}
+.menu-item{
+  flex-direction: column;
+  align-items: flex-start;
+}
+.stack{
+}
+.menu-item image{
+  border-radius: dpConvert(4);
+  margin-bottom:dpConvert(8);
+  width: dpConvert(100);
+  height:dpConvert(100);
+}
+.newLabel{
+  height:dpConvert(20);
+  padding: dpConvert(6) dpConvert(4);
+  margin-top:dpConvert(8);
+  margin-left:dpConvert(62);
+  font-size: dpConvert(10);
+  font-weight:400;
+  color: #ffffff;
+  background-color: #FF7500;
+  border-radius: dpConvert(2);
+}

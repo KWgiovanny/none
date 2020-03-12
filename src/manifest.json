@@ -1,0 +1,45 @@
+{
+    "package": "com.kiwilimon.smartcare",
+    "name": "Kiwilimon",
+    "versionName": "1.0.1",
+    "versionCode": 1,
+    "icon": "/Common/logo.png",
+    "minPlatformVersion": 1060,
+    "features": [
+        {
+            "name": "system.prompt"
+        },
+        {
+            "name": "system.router"
+        }
+    ],
+    "permissions": [
+        {
+            "origin": "*"
+        }
+    ],
+    "config": {},
+    "router": {
+        "entry": "HelloWorld",
+        "pages": {
+            "HelloWorld": {
+                "component": "HelloWorld",
+                "path": "/HelloWorld"
+            }
+        }
+    },
+    "widgets": [
+        {
+            "name": "HelloWorld",
+            "id": "HelloWorld",
+            "path": "/HelloWorld",
+            "component": "HelloWorld",
+            "minPlatformVersion": 1060,
+            "targetManufactorys": [
+                "huawei"
+            ],
+            "params": [],
+            "uses-permission": []
+        }
+    ]
+}
