@@ -11,7 +11,9 @@
         },
         {
             "name": "system.router"
-        }
+        },  {
+            "name": "system.fetch"
+          }
     ],
     "permissions": [
         {

@@ -13,6 +13,9 @@
       "name": "system.router"
     },
     {
+      "name": "system.fetch"
+    },
+    {
       "name": "system.configuration"
     },
     {

@@ -24,6 +24,7 @@
 </style>
 
 <script>
+      import fetch from '@system.fetch'
     import configuration from '@system.configuration'
     import app from "@system.app";
     import router from "@system.router";
@@ -47,7 +48,8 @@
             i18n: $i18n
         },
          onInit: function () {
-            this.$on('menu-click', this.menuClick);
+           // this.$on('menu-click', this.menuClick);
+            this.$on('menu-click', this.close1);
         },        menuClick: function (event) {
 
   try {
@@ -81,7 +83,24 @@ success: function(data) {
 
         },
         close1: function () {
-            
+             var that = this;
+            let content;
+                   fetch.fetch({
+                url: "https://gr.kiwilimon.com/v6/feed?v=1&language=es&device=android&type=home&key=&order=3&quantity=4&page=1",
+                responseType:'text',
+                method:"GET",
+                success: function (ret) {
+                 content = that.fetchData1 = "Fetch data:" + JSON.stringify(ret.data);
+                    that.showVar = true;
+                },
+                fail: function (msg, code) {
+                    console.log(msg, code);
+                },
+                complete: function () {
+                    console.log("complete gio");
+                    console.log(content);
+                }
+            })
         },
         close2: function () {
         }
