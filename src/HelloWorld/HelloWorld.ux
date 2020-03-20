@@ -5,18 +5,12 @@
 
             <div class="menu">
             
-                <div class="menu-item" >
+                <div class="menu-item" for="{{$t('message.KiwilimonCard.content.menu')}}">
                     <stack class="stack">
-                        <image show="{{showVar}}" src="{{photoUri}}"></image>
-                        <image show="{{showVar}}" src="{{photoUri}}"></image>
                         <image show="{{showVar}}" src="{{photoUri}}"></image>
                     </stack>
                     <text class="food_name" id="name">{{Recipename}}</text>
-                    <text class="food_name" id="name">{{Recipename}}</text>
-                    <text class="food_name" id="name">{{Recipename}}</text>
                     <text class="food_price">{{mclient}}</text>
-                     <text class="food_price">{{mclient}}</text>
-                      <text class="food_price">{{mclient}}</text>
                 </div>
             </div>
 
@@ -72,6 +66,7 @@
                  content = JSON.parse(ret.data).payload;
 
                  console.log("gioi taht",that);
+
                  for ( let item of JSON.parse(ret.data).payload){
                   var auxItem = {... item}
                   
